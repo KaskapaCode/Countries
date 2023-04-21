@@ -1,0 +1,160 @@
+:root {
+  --elements: hsl(0, 0%, 100%);
+  --background: hsl(0, 0%, 98%);
+  --input: hsl(0, 0%, 52%);
+  --text: hsl(200, 15%, 8%);
+}
+body {
+  font-family: "Nunito Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+}
+main {
+  margin-right: 90px;
+}
+header h1 {
+  display: inline-block;
+  margin: 0;
+  font-size: 25px;
+  margin-left: 70px;
+  color: var(--text);
+}
+header .mode {
+  height: 20px;
+  float: right;
+  margin: 0;
+  margin-top: 5px;
+  font-size: 17px;
+  font-weight: 400;
+  margin-right: 70px;
+  color: var(--text);
+  border: none;
+  background-color: var(--elements);
+  box-shadow: none;
+}
+header .mode:hover {
+  cursor: pointer;
+}
+header .mode i {
+  rotate: -30deg;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text);
+}
+header {
+  margin-top: 20px;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.05);
+  margin: 0;
+  padding: 20px;
+  background-color: var(--elements);
+}
+button {
+  color: var(--text);
+  background-color: var(--elements);
+
+  border: none;
+  outline: none;
+  box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.03);
+  border-radius: 5px;
+
+  height: 50px;
+  font-size: 17px;
+  width: 150px;
+
+  cursor: pointer;
+  margin: 90px;
+}
+
+.info h1 {
+  font-size: 30px;
+  color: var(--text);
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: var(--text);
+}
+
+.blocks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+img {
+  margin-left: 90px;
+  min-height: 400px;
+}
+
+.text {
+  margin-left: 50px;
+}
+
+strong {
+  font-weight: 600;
+}
+
+.info button {
+  margin: 0px;
+
+  height: 40px;
+  font-size: 16px;
+  width: 120px;
+}
+.borders {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-self: center;
+  margin-top: 40px;
+}
+
+@media all and (max-width: 1000px) {
+  header h1 {
+    display: inline-block;
+    margin: 0;
+    font-size: 15px;
+  }
+  header .mode {
+    float: right;
+    margin: 0;
+    margin-top: 0px;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  header .mode i {
+    rotate: -30deg;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 400;
+  }
+  header {
+    margin-top: 20px;
+    width: 100%;
+    box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.05);
+    margin: 0;
+    padding: 20px;
+  }
+  .back {
+    margin: 0px;
+    margin-left: 30px;
+    margin-top: 50px;
+    width: 120px;
+    height: 40px;
+  }
+  img {
+    margin-top: 20px;
+    max-width: 85%;
+    height: auto;
+    margin-left: 30px;
+  }
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  main {
+    margin-right: 0px;
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9d6976f155.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Where in the world?</h1>
+        <button class="mode"><i class="fa-regular fa-moon" style="color: #000000;"></i>Dark Mode</button>
+    </header>
+    <main>
+        <div class="filters">
+            <div class="searchBox">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="search" placeholder="Serach for a country...">
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Filter by Region <i class="fa-solid fa-chevron-down"></i></button>
+                <div class="dropdown-content">
+                  <a href='javascript:region("Africa");'>Africa</a>
+                  <a href='javascript:region("Americas");'>Americas</a>
+                  <a href='javascript:region("Asia");'>Asia</a>
+                  <a href='javascript:region("Europe");'>Europe</a>
+                  <a href='javascript:region("Oceania");'>Oceania</a>
+                </div>
+              </div> 
+        </div>
+
+        <section class="countries">
+            
+        </section>
+        <script src="fillCards.js"></script>
+    </main>
+</body>
+</html>
