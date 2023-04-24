@@ -85,7 +85,8 @@ button {
 
 img {
   margin-left: 90px;
-  min-height: 400px;
+  max-height: 300px;
+  min-height: 300px;
 }
 
 .text {

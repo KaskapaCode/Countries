@@ -11,20 +11,24 @@ function makeCards(country) {
       let card = document.createElement("div");
       card.id = country;
       card.addEventListener('click', function handleClick(event){
-        sendMe();
+        window.location.assign("\single.html");
       });
 
       let svgTag = document.createElement("img");
+      svgTag.id = country;
       svgTag.src = svg;
       card.append(svgTag);
 
       let nametag = document.createElement("h3");
       let nameText = document.createTextNode(name);
       nametag.appendChild(nameText);
+      nametag.id = country;
       card.append(nametag);
 
       let populationtag = document.createElement("p");
+      populationtag.id = country;
       let strongPop = document.createElement("strong");
+      strongPop.id = country;
       let strongPopText = document.createTextNode("Population: ");
       strongPop.append(strongPopText);
       populationtag.append(strongPop);
@@ -33,7 +37,9 @@ function makeCards(country) {
       card.append(populationtag);
 
       let regionTag = document.createElement("p");
+      regionTag.id = country;
       let strongReg = document.createElement("strong");
+      strongReg.id = country;
       let strongRegText = document.createTextNode("Region: ");
       strongReg.append(strongRegText);
       regionTag.append(strongReg);
@@ -42,7 +48,9 @@ function makeCards(country) {
       card.append(regionTag);
 
       let capitalTag = document.createElement("p");
+      capitalTag.id = country;
       let strongCap = document.createElement("strong");
+      strongCap.id = country;
       let strongCapText = document.createTextNode("Capital: ");
       strongCap.append(strongCapText);
       capitalTag.append(strongCap);
@@ -54,6 +62,7 @@ function makeCards(country) {
       document.querySelector(".countries").append(card);
     });
 }
+
 function numberWithCommas(x) {
   x = x.toString();
   var pattern = /(-?\d+)(\d{3})/;
@@ -73,17 +82,24 @@ document.querySelector(".dropdown").onclick = function () {
   }
 };
 
-let darkMode = false;
-document.querySelector(".mode").onclick = function () {
-  let r = document.querySelector(":root");
+let darkMode = localStorage.getItem("mode");
 
+change(darkMode);
+
+document.querySelector(".mode").onclick = function () {
   if (darkMode) {
     darkMode = false;
+    localStorage.setItem("mode", false);
   } else {
     darkMode = true;
+    localStorage.setItem("mode", true);
   }
 
-  if (darkMode) {
+  change(darkMode);
+};
+function change(color){
+  let r = document.querySelector(":root");
+  if (color) {
     r.style.setProperty("--elements", "hsl(209, 23%, 22%)");
     r.style.setProperty("--background", "hsl(207, 26%, 17%)");
     r.style.setProperty("--input", "hsl(0, 0%, 100%)");
@@ -94,7 +110,8 @@ document.querySelector(".mode").onclick = function () {
     r.style.setProperty("--input", "hsl(0, 0%, 52%)");
     r.style.setProperty("--text", "hsl(200, 15%, 8%)");
   }
-};
+  console.log(color);
+}
 
 function region(vieta) {
   document.querySelector(".countries").innerHTML = "";
@@ -110,6 +127,7 @@ function region(vieta) {
       }
     });
 }
+
 document.querySelector(".search").addEventListener("keydown", (event) => {
   if(alphaOnly(event)){
     country(document.querySelector(".search").value + event.key);
@@ -119,6 +137,7 @@ document.querySelector(".search").addEventListener("keydown", (event) => {
     console.log(document.querySelector(".search").value.substring(0, document.querySelector(".search").value.length - 1));
   }
 });
+
 function country(key) {
   document.querySelector(".countries").innerHTML = "";
   fetch("data.json")
@@ -141,7 +160,20 @@ function backspace(event){
   var key = event.keyCode;
   return (key == 8);
 }
-function sendMe(){
-  console.log("Different")
-  document.querySelector('.countries ')
-}
+
+
+document.addEventListener('click', (e) =>
+  {
+    // Retrieve id from clicked element
+    let elementId = e.target.id;
+    // If element has id
+    if (elementId !== '') {
+        console.log(elementId);
+        localStorage.setItem("coutnry", elementId);
+    }
+    // If element has no id
+    else { 
+        console.log("An element without an id was clicked.");
+    }
+  }
+);
