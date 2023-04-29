@@ -134,25 +134,13 @@ function region(vieta) {
     });
 }
 
-document.querySelector(".search").addEventListener("keydown", (event) => {
-  if(alphaOnly(event)){
-    country(document.querySelector(".search").value + event.key);
-    console.log(document.querySelector(".search").value + event.key);
-  }else if(backspace(event)){
-    country(document.querySelector(".search").value.substring(0, document.querySelector(".search").value.length - 1));
-    console.log(document.querySelector(".search").value.substring(0, document.querySelector(".search").value.length - 1));
-  }
-});
+function myFunction(){
+ 
+  country(document.querySelector(".search").value);
+  console.log(document.querySelector(".search").value);
+  
+}
 
-document.querySelector(".search").addEventListener("touchstart", (event) => {
-  if(alphaOnly(event)){
-    country(document.querySelector(".search").value + event.key);
-    console.log(document.querySelector(".search").value + event.key);
-  }else if(backspace(event)){
-    country(document.querySelector(".search").value.substring(0, document.querySelector(".search").value.length - 1));
-    console.log(document.querySelector(".search").value.substring(0, document.querySelector(".search").value.length - 1));
-  }
-});
 
 function country(key) {
   document.querySelector(".countries").innerHTML = "";
