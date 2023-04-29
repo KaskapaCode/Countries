@@ -15,16 +15,20 @@ function makeCards(country) {
       });
 
       let svgTag = document.createElement("img");
+      svgTag.id = country;
       svgTag.src = svg;
       card.append(svgTag);
 
       let nametag = document.createElement("h3");
+      nametag.id = country;
       let nameText = document.createTextNode(name);
       nametag.appendChild(nameText);
       card.append(nametag);
 
       let populationtag = document.createElement("p");
+      populationtag.id = country;
       let strongPop = document.createElement("strong");
+      strongPop.id = country;
       let strongPopText = document.createTextNode("Population: ");
       strongPop.append(strongPopText);
       populationtag.append(strongPop);
@@ -33,7 +37,9 @@ function makeCards(country) {
       card.append(populationtag);
 
       let regionTag = document.createElement("p");
+      regionTag.id = country;
       let strongReg = document.createElement("strong");
+      strongReg.id = country;
       let strongRegText = document.createTextNode("Region: ");
       strongReg.append(strongRegText);
       regionTag.append(strongReg);
@@ -42,7 +48,9 @@ function makeCards(country) {
       card.append(regionTag);
 
       let capitalTag = document.createElement("p");
+      capitalTag.id = country;
       let strongCap = document.createElement("strong");
+      strongCap.id = country;
       let strongCapText = document.createTextNode("Capital: ");
       strongCap.append(strongCapText);
       capitalTag.append(strongCap);
