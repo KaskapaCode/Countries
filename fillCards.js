@@ -92,7 +92,7 @@ let darkMode = localStorage.getItem("mode");
 
 document.querySelector(".mode").onclick = function () {
   change(darkMode);
-  
+
   if (darkMode) { 
     darkMode = false;
     localStorage.setItem("mode", false);
@@ -135,6 +135,16 @@ function region(vieta) {
 }
 
 document.querySelector(".search").addEventListener("keydown", (event) => {
+  if(alphaOnly(event)){
+    country(document.querySelector(".search").value + event.key);
+    console.log(document.querySelector(".search").value + event.key);
+  }else if(backspace(event)){
+    country(document.querySelector(".search").value.substring(0, document.querySelector(".search").value.length - 1));
+    console.log(document.querySelector(".search").value.substring(0, document.querySelector(".search").value.length - 1));
+  }
+});
+
+document.querySelector(".search").addEventListener("touchstart", (event) => {
   if(alphaOnly(event)){
     country(document.querySelector(".search").value + event.key);
     console.log(document.querySelector(".search").value + event.key);
