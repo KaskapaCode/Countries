@@ -82,12 +82,18 @@ document.querySelector(".dropdown").onclick = function () {
   }
 };
 
+
+const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+change(darkThemeMq.matches);
+
+localStorage.setItem("mode" ,darkThemeMq.matches);
+
 let darkMode = localStorage.getItem("mode");
 
-change(darkMode);
-
 document.querySelector(".mode").onclick = function () {
-  if (darkMode) {
+  change(darkMode);
+  
+  if (darkMode) { 
     darkMode = false;
     localStorage.setItem("mode", false);
   } else {
@@ -95,8 +101,8 @@ document.querySelector(".mode").onclick = function () {
     localStorage.setItem("mode", true);
   }
 
-  change(darkMode);
 };
+
 function change(color){
   let r = document.querySelector(":root");
   if (color) {
