@@ -9,26 +9,22 @@ function makeCards(country) {
       let svg = res[country].flags.svg;
 
       let card = document.createElement("div");
-      card.id = country;
+      card.id = "country" + country;
       card.addEventListener('click', function handleClick(event){
         window.location.assign("\single.html");
       });
 
       let svgTag = document.createElement("img");
-      svgTag.id = country;
       svgTag.src = svg;
       card.append(svgTag);
 
       let nametag = document.createElement("h3");
       let nameText = document.createTextNode(name);
       nametag.appendChild(nameText);
-      nametag.id = country;
       card.append(nametag);
 
       let populationtag = document.createElement("p");
-      populationtag.id = country;
       let strongPop = document.createElement("strong");
-      strongPop.id = country;
       let strongPopText = document.createTextNode("Population: ");
       strongPop.append(strongPopText);
       populationtag.append(strongPop);
@@ -37,9 +33,7 @@ function makeCards(country) {
       card.append(populationtag);
 
       let regionTag = document.createElement("p");
-      regionTag.id = country;
       let strongReg = document.createElement("strong");
-      strongReg.id = country;
       let strongRegText = document.createTextNode("Region: ");
       strongReg.append(strongRegText);
       regionTag.append(strongReg);
@@ -48,9 +42,7 @@ function makeCards(country) {
       card.append(regionTag);
 
       let capitalTag = document.createElement("p");
-      capitalTag.id = country;
       let strongCap = document.createElement("strong");
-      strongCap.id = country;
       let strongCapText = document.createTextNode("Capital: ");
       strongCap.append(strongCapText);
       capitalTag.append(strongCap);
@@ -70,7 +62,7 @@ function numberWithCommas(x) {
   return x;
 }
 
-for (let i = 1; i < 250; i++) {
+for (let i = 0; i < 250; i++) {
   makeCards(i);
 }
 
@@ -142,20 +134,31 @@ function myFunction(){
 }
 
 
-function country(key) {
-  document.querySelector(".countries").innerHTML = "";
+function myFunction() {
+  // Declare variables
+  let input, filter;
+  input = document.querySelector(".search");
+  filter = input.value.toLowerCase();
+  
   fetch("data.json")
     .then((res) => res.json())
     .then((res) => {
       let countries = res.map((d) => d.name);
 
+      console.log(filter);
       for (let i = 0; i < countries.length; i++) {
-        if (countries[i].toLowerCase().includes(key.toLowerCase())) {
-          makeCards(i);
+        if (countries[i].toLowerCase().includes(filter)) {
+          document.getElementById("country"+i).style.display = "";
+          console.log(countries[i].toLowerCase());
+          console.log(i);
+        }else{
+          document.getElementById("country"+i).style.display = "none";
         }
       }
+      console.log("done loading")
     });
 }
+
 function alphaOnly(event) {
   var key = event.keyCode;
   return ((key >= 65 && key <= 90));
